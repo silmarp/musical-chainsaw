@@ -41,4 +41,4 @@ class Test_serializer(unittest.TestCase):
 
 if __name__ == "__main__":
     for test_case in TEST_CASES:
-        unittest.main()
+        unittest.main(exit=False)
