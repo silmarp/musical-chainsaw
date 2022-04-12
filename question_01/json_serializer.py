@@ -23,6 +23,10 @@ SCHEMA = {
 }
 
 def main():
+    # open and erase json output file
+    fp = open("questao_01.json", "w")
+    fp.close()
+    
     with open("questao_01.csv", newline="") as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -33,9 +37,12 @@ def main():
                         row["Building"],
                     ]
             json_obj = serialize(row_data)
+            json_output(json_obj)
 
-
-
+def json_output(json_obj):
+    with open("questao_01.json", "a+") as outfile:
+        outfile.write(json_obj)
+        outfile.write("\n")
 
 
 def serialize(arr):
