@@ -1,4 +1,5 @@
 import json
+import csv
 
 SCHEMA = {
     "title": "Floor Access Event",
@@ -22,7 +23,20 @@ SCHEMA = {
 }
 
 def main():
-    pass
+    with open("questao_01.csv", newline="") as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            row_data = [
+                        row["Person Id"],
+                        row["Floor Access DateTime"],
+                        row["Floor Level"],
+                        row["Building"],
+                    ]
+            json_obj = serialize(row_data)
+
+
+
+
 
 def serialize(arr):
     data =  SCHEMA.copy()
